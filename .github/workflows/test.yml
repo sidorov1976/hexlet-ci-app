@@ -4,11 +4,18 @@ on: push
 jobs:
   # build – произвольно выбранное имя задания
   # их может быть больше одного
-  setup_and_test:
-    # операционная система для работы воркфлоу
+  setup:
     runs-on: ubuntu-latest
     steps: # список шагов, которые надо выполнить
       - uses: actions/checkout@v3
       - run: make setup
+  test:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps: # список шагов, которые надо выполнить
       - run: make test
+  lint:
+    runs-on: ubuntu-latest
+    steps: # список шагов, которые надо выполнить
+      - uses: actions/checkout@v3
       - run: make lint
