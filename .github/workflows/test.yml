@@ -13,9 +13,9 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - uses: actions/setup-node@v3
-          with:
-            node-version: 18
-            cache: 'npm'
+        with:
+          node-version: 18
+          cache: 'npm'
       - run: make setup
       - run: make test
       - run: make lint
