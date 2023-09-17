@@ -14,7 +14,7 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - uses: actions/setup-node@v3
           with:
-            node-vers: 16.x
+            node-version: 18
             cache: 'npm'
       - run: make setup
       - run: make test
